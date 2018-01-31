@@ -31,15 +31,9 @@ namespace MonoGame
       {
         foreach ( ModelMeshPart part in mesh.MeshParts )
         {
-          try
-          {
-            part.Effect = effect;
-            effect.Parameters[ "DayTexture"   ].SetValue( m_DayTexture   );
-            effect.Parameters[ "NightTexture" ].SetValue( m_NightTexture );
-          }
-          catch ( Exception e_ )
-          {
-          }
+          part.Effect = effect;
+          effect.Parameters[ "DayTexture"   ].SetValue( m_DayTexture   );
+          effect.Parameters[ "NightTexture" ].SetValue( m_NightTexture );
         }
       }
     }

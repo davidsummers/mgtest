@@ -159,7 +159,6 @@ namespace MonoGame
 
     private Scene  m_Scene;
 
-    private HelicopterModel m_Helicopter;
     private EarthModel      m_Earth;
     private Circle          m_Circle;
 
