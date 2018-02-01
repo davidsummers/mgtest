@@ -1,5 +1,14 @@
+#if OPENGL
+#define SV_POSITION POSITION
+#define UORS static
+#define VERTEX_SHADER_VERSION vs_3_0
+#define PIXEL_SHADER_VERSION  ps_3_0
+#else
+#define SV_POSITION POSITION
+#define UORS uniform
 #define VERTEX_SHADER_VERSION vs_4_0_level_9_1
 #define PIXEL_SHADER_VERSION  ps_4_0_level_9_1
+#endif
 
 //-----------------------------------------------------------------------------
 // BasicEffect.fx
@@ -42,11 +51,11 @@ uniform const float3	EyePosition;	// in world space
 // Material settings
 //-----------------------------------------------------------------------------
 
-uniform const float3 DiffuseColor  = 1;
-uniform const float  Alpha         = 1;
-uniform const float3 EmissiveColor = 0;
-uniform const float3 SpecularColor = 1;
-uniform const float  SpecularPower = 16;
+UORS const float3 DiffuseColor  = 1;
+UORS const float  Alpha         = 1;
+UORS const float3 EmissiveColor = 0;
+UORS const float3 SpecularColor = 1;
+UORS const float  SpecularPower = 16;
 
 
 //-----------------------------------------------------------------------------
@@ -607,7 +616,7 @@ PixelLightingVSOutputTx VSBasicPixelLightingNmTxVc( VSInputNmTxVc vin_ )
 // Pixel shaders
 //-----------------------------------------------------------------------------
 
-float4 PSBasic( VertexLightingPSInput pin ) : COLOR
+float4 PSBasic( VertexLightingPSInput pin ) : SV_Target
 {
   float4 color = pin.Diffuse + float4( pin.Specular.rgb, 0 );
   // color.rgb = lerp( color.rgb, FogColor, pin.Specular.w );
