@@ -1,13 +1,5 @@
-#if SM4
 #define VERTEX_SHADER_VERSION vs_4_0_level_9_1
 #define PIXEL_SHADER_VERSION  ps_4_0_level_9_1
-#elif SM3
-#define VERTEX_SHADER_VERSION vs_3_0
-#define PIXEL_SHADER_VERSION  ps_3_0
-#else
-#define VERTEX_SHADER_VERSION vs_2_0
-#define PIXEL_SHADER_VERSION  ps_2_0
-#endif
 
 //-----------------------------------------------------------------------------
 // BasicEffect.fx
