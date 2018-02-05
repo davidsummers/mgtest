@@ -1,13 +1,14 @@
-#if OPENGL
-#define SV_POSITION POSITION
-#define UORS static
-#define VERTEX_SHADER_VERSION vs_3_0
-#define PIXEL_SHADER_VERSION  ps_3_0
-#else
+// SM4 is the symbol used when Direct3D is compiled.
+#if SM4
 #define SV_POSITION POSITION
 #define UORS uniform
 #define VERTEX_SHADER_VERSION vs_4_0_level_9_1
 #define PIXEL_SHADER_VERSION  ps_4_0_level_9_1
+#else
+#define SV_POSITION POSITION
+#define UORS static
+#define VERTEX_SHADER_VERSION vs_3_0
+#define PIXEL_SHADER_VERSION  ps_3_0
 #endif
 
 //-----------------------------------------------------------------------------
