@@ -54,17 +54,29 @@ namespace MonoGame
       {
         foreach ( Effect effect in mesh.Effects )
         {
-          effect.Parameters[ "AmbientLightColor"      ].SetValue( m_Ambient );
+          effect.Parameters[ "DayTexture"   ].SetValue( m_DayTexture   );
+          effect.Parameters[ "NightTexture" ].SetValue( m_NightTexture );
+
+          effect.Parameters[ "EyePosition"            ].SetValue( Vector3.Zero ); // Because camera is ALWAYS at origin.
+
           effect.Parameters[ "DiffuseColor"           ].SetValue( m_Diffuse );
+          effect.Parameters[ "Alpha"                  ].SetValue( 1.0f );
           effect.Parameters[ "EmissiveColor"          ].SetValue( m_EmmisiveColor );
           effect.Parameters[ "SpecularColor"          ].SetValue( m_Specular );
+          effect.Parameters[ "SpecularPower"          ].SetValue( 16f );
+          effect.Parameters[ "AmbientLightColor"      ].SetValue( m_Ambient );
 
-          effect.Parameters[ "Alpha"                  ].SetValue( 1.0f );
           effect.Parameters[ "DirLight0Direction"     ].SetValue( sunDir );
           effect.Parameters[ "DirLight0DiffuseColor"  ].SetValue( m_SunDiffuse );
           effect.Parameters[ "DirLight0SpecularColor" ].SetValue( m_SunSpecular );
 
-          effect.Parameters[ "EyePosition"            ].SetValue( Vector3.Zero ); // Because camera is ALWAYS at origin.
+          effect.Parameters[ "DirLight1Direction"     ].SetValue( sunDir );
+          effect.Parameters[ "DirLight1DiffuseColor"  ].SetValue( m_SunDiffuse );
+          effect.Parameters[ "DirLight1SpecularColor" ].SetValue( m_SunSpecular );
+
+          effect.Parameters[ "DirLight2Direction"     ].SetValue( sunDir );
+          effect.Parameters[ "DirLight2DiffuseColor"  ].SetValue( m_SunDiffuse );
+          effect.Parameters[ "DirLight2SpecularColor" ].SetValue( m_SunSpecular );
 
           effect.Parameters[ "World"                  ].SetValue( mesh.ParentBone.Transform * world * camera_.GetPositionMatrix( ) );
           effect.Parameters[ "Projection"             ].SetValue( camera_.GetProjection( ) );
