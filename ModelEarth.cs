@@ -82,7 +82,7 @@ namespace MonoGame
           effect.Parameters[ "Projection"             ].SetValue( camera_.GetProjection( ) );
           effect.Parameters[ "View"                   ].SetValue( camera_.GetView( ) );
 
-          const int shaderVal = 10; // Effect # 10 in shader effect file.
+          const int shaderVal = 0; // Effect # 0 in shader effect file.
           effect.CurrentTechnique = effect.Techniques[ shaderVal ];
         } 
 
