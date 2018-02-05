@@ -136,17 +136,6 @@ struct PixelLightingVSOutputTx
 };
 
 //-----------------------------------------------------------------------------
-// Pixel shader inputs
-//-----------------------------------------------------------------------------
-struct PixelLightingPSInputTx
-{
-  float2 TexCoord   : TEXCOORD0;
-  float4 PositionWS : TEXCOORD1;
-  float3 NormalWS   : TEXCOORD2;
-  float4 Diffuse: COLOR0;		// diffuse.rgb and alpha
-};
-
-//-----------------------------------------------------------------------------
 // Compute lighting
 // E: Eye-Vector
 // N: Unit vector normal in world space
@@ -274,7 +263,7 @@ PixelLightingVSOutputTx VSBasicPixelLightingNmTx( VSInputNmTx vin_ )
 //-----------------------------------------------------------------------------
 // Pixel shaders
 //-----------------------------------------------------------------------------
-float4 PSBasicPixelLightingTx( PixelLightingPSInputTx pin ) : COLOR
+float4 PSBasicPixelLightingTx( PixelLightingVSOutputTx pin ) : COLOR
 {
   float3 posToEye = EyePosition - pin.PositionWS.xyz;
 
