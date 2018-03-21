@@ -2,7 +2,6 @@
 
 namespace MonoGame
 {
-#if WINDOWS || LINUX
     /// <summary>
     /// The main class.
     /// </summary>
@@ -20,5 +19,4 @@ namespace MonoGame
           }
         }
     }
-#endif
 }

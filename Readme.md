@@ -11,3 +11,14 @@ The two MonoGame issues that use this code are at:
     https://github.com/MonoGame/MonoGame/issues/6169
     https://github.com/MonoGame/MonoGame/issues/6171
 
+To build:
+
+Make sure MonoGame SDK 3.6 is installed and mgcb.exe is on the search PATH
+Make sure Nuget is installed and nuget.exe is on the search PATH
+Make sure CMAKE 3.8 or later is installed and cmake is on the search PATH
+
+mkdir build
+cd build
+cmake ..
+cmake --build .
+
